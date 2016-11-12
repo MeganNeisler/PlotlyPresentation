@@ -1,0 +1,50 @@
+---
+title: "Black Cherry Tree Measurements"
+author: "Megan Neisler"
+date: "November 11, 2016"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+library(plotly)
+head(trees)
+
+f <- list(
+  family = "Courier New, monospace",
+  size = 18,
+  color = "#7f7f7f"
+)
+
+x <- list(
+  title = "Girth (Inches)",
+  titlefont = f
+)
+y <- list(
+  title = "Height (ft)",
+  titlefont = f
+)
+```
+
+## Data Description 
+
+- The data set includes measurements of the girth (diameter in inches), height (feet) and volume (cubic feet) of timber.
+- Sample: 31 black cherry tress in the Allegheny National Forest, Pennsylvania. 
+
+## Black Cherry Tree Measurements
+
+```{r, message=FALSE, warning=FALSE}
+plot_ly(trees,  x = trees$Girth, y = trees$Height, type = "scatter", mode = "markers", 
+         size = trees$Volume) %>%
+  layout(xaxis = x, yaxis = y)
+```
+
+## Thanks!
+
+Source:
+
+Ryan, T. A., Joiner, B. L. and Ryan, B. F. (1976) The Minitab Student Handbook. Duxbury Press.
+
